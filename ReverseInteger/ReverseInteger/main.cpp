@@ -13,16 +13,12 @@ class Solution {
 public:
     int reverse(int x)
     {
-        long result = 0;
-        int  isNegative = (x < 0) ? -1 : 1;
-        x = abs(x);
+        long long sum = 0;
         while (x) {
-            result = result * 10 + x % 10;
+            sum = sum * 10 + x % 10;
             x /= 10;
         }
-        int resultTmp = (int)result;
-        
-        return (resultTmp == result) ? resultTmp * isNegative : 0;
+        return (sum == (int)sum) ? (int)sum : 0;
     }
 };
 
@@ -30,6 +26,6 @@ public:
 int main(int argc, const char * argv[])
 {
     Solution sol;
-    std::cout << sol.reverse(1000000002) << std::endl;
+    std::cout << sol.reverse(-1000000002) << std::endl;
     return 0;
 }
